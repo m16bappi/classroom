@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+  <div class="container mt-8 widts flex-column d-flex justify-center
+    align-center">
+    <div class="card" style="margin: 15px;">
+      <img style="height: 50px; width: 50px; align-self: center;" src="{% static 'images/classroom.svg' %}"
+        alt="classroom">
+      <h1 style="text-align: center;">Login</h1>
+      <p style="text-align: center;" class="text-secondary">Login to your account</p>
+      <form class="mx-4 mb-3" method="POST">
+        {% include 'alert.html' %}
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button class="w-100 mt-2 btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

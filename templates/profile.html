@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="wrapper">
+  <div class="card">
+    <img style="height: 80px; width: 80px; align-self: center; border-radius: 50%;" src="{{ user.photo.url }}"
+      alt="profile">
+    <h2 style="text-align: center;" class="mt-4">{{ user.first_name }} {{ user.last_name }}</h2>
+    <p style="text-align: center;" class="text-secondary">{{ user.email }}</p>
+    {% include 'alert.html' %}
+    <div>
+      <div class="details">
+        <span class="title">Department: </span>
+        <span class="value">{{ user.department }}</span>
+      </div>
+
+      <div class="details">
+        <span class="title">Occupation: </span>
+        <span class="value">{{ user.occupation }}</span>
+      </div>
+
+      <div class="details">
+        <span class="title">Phone: </span>
+        <span class="value">{{ user.phone }}</span>
+      </div>
+    </div>
+    <div style="display: flex; width: 90%; margin:0 20px; justify-content: space-between; align-items: center;"
+      class="mb-3">
+      <a href="{% url 'edit-profile' %}" class="btn btn-primary">Edit Profile</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

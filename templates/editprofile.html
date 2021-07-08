@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="wrapper">
+  <div class="card">
+    <img style="height: 80px; width: 80px; align-self: center; border-radius: 50%;" src="{{ user.photo.url }}"
+      alt="profile">
+    <h2 style="text-align: center;" class="mt-4">Edit Profile</h2>
+    <p style="text-align: center;" class="text-secondary">Edit your profie</p>
+    <form class="mx-4 mt-4" style="width: 100%; margin-top:20px;" method="POST" enctype="multipart/form-data">
+      {% include 'alert.html' %}
+      {% csrf_token %}
+      <div class="mb-4 row">
+        <div class="col">
+          <label for="fname" class="form-label">First Name</label>
+          <input type="text" name="first-name" value="{{ user.first_name }}">
+        </div>
+        <div class="col">
+          <label for="lname" class="form-label">Last Name</label>
+          <input type="text" name="last-name" value="{{ user.last_name }}">
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" name="email" value="{{ user.email }}">
+      </div>
+      <div class="mb-4">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" name="phone" value="{{ user.phone }}">
+      </div>
+      <div class="mb-4">
+        <label for="photo" class="form-label">Upload Photo</label>
+        <input type="file" name="photo" />
+      </div>
+      <div style="display: flex; width: 90%; justify-content: space-between; align-items: center;" class="mb-3">
+        <a href="{% url 'profile' %}" class="btn">Profile</a>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

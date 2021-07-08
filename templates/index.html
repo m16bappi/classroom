@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %} {% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="container widts mt-4 flex-column d-flex justify-center
+  align-center">
+    <img style="height: 50px; width: 50px; align-self: center;" src="{% static 'images/classroom.svg' %}"
+      alt="classroom">
+    <h1 style="text-align: center;">Where teaching and learning come together</h1>
+    <p style="text-align: center;" class="text-secondary">Google Classroom is your all-in-one place for teaching and
+      learning. Our easy-to-use and secure tool helps educators manage, measure, and enrich learning experiences.</p>
+    <div class="d-flex justify-center align-center" style="align-self: center;">
+      <a class="btn btn-primary mx-4" href="login.html">Get started for free</a>
+      <button class="btn btn-outline-primary">Go to classroom</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
